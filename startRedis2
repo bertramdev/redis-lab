@@ -1,0 +1,9 @@
+#!/bin/sh
+
+if [[  -z "$REDIS_HOME" ]]
+then
+	export REDIS_HOME="."
+end
+fi
+
+$REDIS_HOME/src/redis-server redis2.conf
