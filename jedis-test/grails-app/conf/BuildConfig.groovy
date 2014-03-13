@@ -36,19 +36,25 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+
+        mavenRepo name: 'SpireonSnapshot', root: 'http://nexus.spireon.com/nexus/content/repositories/spireon-snapshot'
+        mavenRepo name: 'SpireonRelease', root: 'http://nexus.spireon.com/nexus/content/repositories/spireon-release'
     }
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
 
         // runtime 'mysql:mysql-connector-java:5.1.22'
+        compile "redis.clients:jedis:2.2.1.PROCON"
     }
 
     plugins {
         runtime ":hibernate:$grailsVersion"
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
-        compile ':redis:1.4'
+        compile(':redis:1.4') {
+            exclude "jedis"
+        }
         compile ':executor:0.3'
         compile ":console:1.2"
 

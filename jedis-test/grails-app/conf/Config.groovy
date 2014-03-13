@@ -58,6 +58,7 @@ grails.exceptionresolver.params.exclude = ['password']
 
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
+grails.logging.jul.usebridge = true
 
 grails {
   redis {
@@ -112,7 +113,8 @@ log4j = {
       'grails.app.task',
       'grails.app.services.grails.plugin.redis'
 
-    debug 'grails.app.services'
+    debug 'grails.app.services',
+          'redis.clients.jedis'
 
     root {
       info 'stdout'
